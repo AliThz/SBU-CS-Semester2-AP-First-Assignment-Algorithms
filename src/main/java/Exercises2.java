@@ -14,9 +14,23 @@ public class Exercises2 {
     */
 
     public int[] twoSum(int[] nums, int target) {
-        // TODO
-        return null;
+        int[] answerIndices = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if (i == j)
+                    continue;
+                if (nums[i] + nums[j] == target) {
+                    answerIndices[0] = i;
+                    answerIndices[1] = j;
+                    return answerIndices;
+                }
+            }
+        }
+
+        return answerIndices;
     }
+
+
 
     /*
     Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
