@@ -62,9 +62,42 @@ public class Exercises2 {
     Given a roman numeral, convert it to an integer.
     */
 
-    public int romanToInt(String s) {
-        // TODO
-        return 0;
+    public static int romanToInt(String s) {
+        int number = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            int n = switch (currentChar) {
+                case 'I' -> 1;
+                case 'V' -> 5;
+                case 'X' -> 10;
+                case 'L' -> 50;
+                case 'C' -> 100;
+                case 'D' -> 500;
+                case 'M' -> 1000;
+                default -> 0;
+            };
+
+            if (i != s.length() - 1) {
+                char nextChar = s.charAt(i + 1);
+                int m = switch (nextChar) {
+                    case 'I' -> 1;
+                    case 'V' -> 5;
+                    case 'X' -> 10;
+                    case 'L' -> 50;
+                    case 'C' -> 100;
+                    case 'D' -> 500;
+                    case 'M' -> 1000;
+                    default -> 0;
+                };
+                if (n < m) {
+                    n = m - n;
+                    i++;
+                }
+            }
+                number += n;
+        }
+
+        return number;
     }
 
     /*
@@ -79,5 +112,6 @@ public class Exercises2 {
 
     public static void main(String[] args) {
         // test your code here!
+        System.out.println(romanToInt("IV"));
     }
 }
