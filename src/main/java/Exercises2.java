@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Exercises2 {
 
@@ -106,12 +103,33 @@ public class Exercises2 {
     */
 
     public List<List<Integer>> permute(int[] nums) {
-        // TODO
-        return null;
+        List<List<Integer>> result = new ArrayList<>();
+        LinkedList<List<Integer>> permutations = new LinkedList<>();
+        permutations.add(new ArrayList<>());
+
+        for (int currentNumber : nums) {
+            int n = permutations.size();
+
+            for (int i = 0; i < n; i++) {
+                List<Integer> oldPermutation = permutations.poll();
+
+                for (int j = 0; j <= oldPermutation.size(); j++) {
+                    List<Integer> newPermutation = new ArrayList<>(oldPermutation);
+                    newPermutation.add(j, currentNumber);
+
+                    if (newPermutation.size() == nums.length)
+                        result.add(newPermutation);
+
+                    else
+                        permutations.add(newPermutation);
+                }
+            }
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
         // test your code here!
-        System.out.println(romanToInt("IV"));
     }
 }
