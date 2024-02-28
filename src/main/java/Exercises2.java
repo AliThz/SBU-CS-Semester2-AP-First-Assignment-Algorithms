@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Exercises2 {
 
+    //region [ - twoSum(int[] nums, int target) - ]
     /*
     Given an array of integers nums and an integer target, return indices of the two numbers
     such that they add up to target.
@@ -26,9 +27,9 @@ public class Exercises2 {
 
         return answerIndices;
     }
+    //endregion
 
-
-
+    //region [ - romanToInt(String s) - ]
     /*
     Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
@@ -91,12 +92,14 @@ public class Exercises2 {
                     i++;
                 }
             }
-                number += n;
+            number += n;
         }
 
         return number;
     }
+    //endregion
 
+    //region [ - permute(int[] nums) - ]
     /*
     Given an array nums of distinct integers, return all the possible permutations.
     You can return the answer in any order.
@@ -113,7 +116,7 @@ public class Exercises2 {
             for (int i = 0; i < n; i++) {
                 List<Integer> oldPermutation = permutations.poll();
 
-                for (int j = 0; j <= oldPermutation.size(); j++) {
+                for (int j = 0; j <= Objects.requireNonNull(oldPermutation).size(); j++) {
                     List<Integer> newPermutation = new ArrayList<>(oldPermutation);
                     newPermutation.add(j, currentNumber);
 
@@ -128,8 +131,12 @@ public class Exercises2 {
 
         return result;
     }
+    //endregion
 
+    //region [ - main(String[] args) - ]
     public static void main(String[] args) {
         // test your code here!
     }
+    //endregion
+
 }
