@@ -28,6 +28,8 @@ Remember to use Git for version control throughout the assignment. Commit your c
 
 **Note: It is strictly prohibited to use ChatGPT or any other AI generative model for completing any section of this assignment. Failure to comply will result in a score of 0 without any warnings.**
 
+**Trigger actions**
+
 ## Notes 📝
 
 - Although it is not necessary to know in order to solve the problems, I advise you to also read about `Map<>` & `HashMap<>` in Java and use them in your solutions.
